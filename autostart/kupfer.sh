@@ -1,0 +1,1 @@
+/home/nicolas/bin/kupfer.sh
