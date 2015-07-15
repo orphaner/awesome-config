@@ -615,6 +615,8 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "Spotify" },
       properties = { tag = tags[1][7]} },
+    { rule = { class = "Icedove" },
+      properties = { tag = tags[1][6]} },
     { rule = { instance = "Netbeans" },
       properties = { tag = tags[1][3], maximized_vertical = true, maximized_horizontal = true } },
     { rule = { instance = "plugin-container" },
