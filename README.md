@@ -1,7 +1,7 @@
 # awesome-config
 My awesome WM configuration
 
-# dependancies
+# dependencies
 * alsa-utils
 * xbacklight
 * suckless-tools
