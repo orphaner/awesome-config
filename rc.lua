@@ -14,7 +14,7 @@ vicious = require("vicious")
 local menubar = require("menubar")
 
 -- Load Debian menu entries
-require("debian.menu")
+--require("debian.menu")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -59,7 +59,7 @@ modkey = "Mod4"
 
 
 -- Autostart
-local autostart_dir = string.format('/home/nicolas/.config/awesome/autostart', awful.util.getdir('config'))
+local autostart_dir = string.format('/home/nlassalle/.config/awesome/autostart', awful.util.getdir('config'))
 local autostart_stat = posix.stat(autostart_dir)
 if autostart_stat and autostart_stat.type == 'directory' then
         local files = posix.dir(autostart_dir)
@@ -131,7 +131,6 @@ myawesomemenu = {
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "Debian", debian.menu.Debian_menu.Debian },
                                     { "open terminal", terminal }
                                   }
                         })
@@ -229,15 +228,6 @@ vicious.register(tzswidget, vicious.widgets.thermal, "$1°", 10, "thermal_zone0"
 vicious.register(cpufreq, vicious.widgets.cpuinf, "${cpu0 mhz}mhz - ", 2)
 -- }}}
 
--- {{{ Battery state
-baticon = wibox.widget.imagebox()
-baticon:set_image(beautiful.widget_bat)
--- Initialize widget
-batwidget = wibox.widget.textbox()
--- Register widget
-vicious.register(batwidget, vicious.widgets.bat, "$1$2% - $3", 1, "BAT1")
--- }}}
-
 -- {{{ Memory usage
 memicon = wibox.widget.imagebox()
 memicon:set_image(beautiful.widget_mem)
@@ -296,8 +286,8 @@ upicon:set_image(beautiful.widget_netup)
 netwidget = wibox.widget.textbox()
 -- Register widget
 vicious.register(netwidget, vicious.widgets.net, '<span color="'
-  .. beautiful.fg_netdn_widget ..'">${wlan0 down_kb}</span> <span color="'
-  .. beautiful.fg_netup_widget ..'">${wlan0 up_kb}</span>', 3)
+  .. beautiful.fg_netdn_widget ..'">${eth0 down_kb}</span> <span color="'
+  .. beautiful.fg_netup_widget ..'">${eth0 up_kb}</span>', 3)
 -- }}}
 
 
@@ -406,12 +396,7 @@ for s = 1, screen.count() do
     right_layout:add(dnicon)
     right_layout:add(netwidget)
     right_layout:add(upicon)
-
-    -- battery widget
-    right_layout:add(separator)
-    right_layout:add(baticon)
-    right_layout:add(batwidget)
-
+    
     -- date widget
     right_layout:add(separator)
     right_layout:add(dateicon)
