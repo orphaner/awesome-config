@@ -11,6 +11,7 @@ naughty = require("naughty")
 vicious = require("vicious")
 --require("teardrop")
 --require("scratchpad")
+gears = require("gears")
 local menubar = require("menubar")
 
 -- Load Debian menu entries
